@@ -23,10 +23,11 @@ abstract_target 'Teste-iOSTargets' do
     end
   end
 
-  #target 'UIComponents' do
-   # project 'UIComponents/Components.xcodeproj'
+  target 'UIComponents' do
+    project 'UIComponents/UIComponents.xcodeproj'
 
     # Pods for UIComponents
+    pod 'SwiftLint'
 
-  #end
+  end
 end
