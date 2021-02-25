@@ -5,7 +5,8 @@ Este teste é apresentado aos candidatos as vagas de iOS Developer para avaliar 
 
 ### O Desafio
 
-Seu objetivo é criar um app com duas telas, uma que exibe um formulário e outra que exibe o resultado de uma API.
+Seu objetivo é usar o template de projeto fornecido para desenvolver um app com duas telas, uma que exibe um formulário e outra que exibe o resultado de uma API.
+Lembrando de que essa é uma oportunidade de mostrar todo o seu conhecimento então leve o tempo que precisar e capriche no desenvolvimento que prometemos avaliar com o maior carinho. :)
 
 ### Telas
 
@@ -60,12 +61,11 @@ A API que calcula o os valores futuros se encontram em [outro projeto Open Sourc
  - Utilizar autolayout;
  - Usamos SwiftLint aqui (https://github.com/realm/SwiftLint) e gostaríamos que seu código seguisse o mesmo padrão que a gente :) As regras estão no ./linter/.swiftlint.yml;
 
-### Plus:
- - Dynamic Type;
- - Acessibilidade;
- - NSURLSession + Codable;
+### Bônus:
+ - URLSession + Codable;
+ - Coordinators;
+ - ViewCode;
 
 ### O que esperamos:
  - Testes, no mínimo testes unitários;
  - Padrão de Projeto e boas práticas de Orientação a Objetos;
-
