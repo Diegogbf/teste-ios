@@ -16,7 +16,7 @@ Lembrando de que essa é uma oportunidade de mostrar todo o seu conhecimento ent
 Para o desenho das telas, não precisa se preocupar com a interface na horizontal;
 
 ## Consumindo o serviço de cálculo
-A API que calcula o os valores futuros se encontram em [outro projeto Open Source, aqui](https://github.com/easynvest/api-simulator-calc). Abaixo segue algumas informações sobre como utilizamos esse serviço no nosso simulador.
+A API que calcula o os valores futuros seguem o padrão descrito abaixo:
 
  - **URL**: https://run.mocky.io/v3/ecfaebf5-782b-4b24-ae4f-23b5c3a861da
  - **Method**: GET
