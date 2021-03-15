@@ -18,7 +18,7 @@ Para o desenho das telas, não precisa se preocupar com a interface na horizonta
 ## Consumindo o serviço de cálculo
 A API que calcula o os valores futuros seguem o padrão descrito abaixo:
 
- - **URL**: https://run.mocky.io/v3/ecfaebf5-782b-4b24-ae4f-23b5c3a861da
+ - **URL**: http://run.mocky.io/v3/be969a06-1447-4205-94ab-7b6324fdfb1d
  - **Method**: GET
  - **URL Params**:
     ```javascript
