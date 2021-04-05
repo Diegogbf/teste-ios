@@ -10,6 +10,7 @@
 		050587FE65B34031D9741429 /* Pods_Teste_iOSTargets_Teste_iOS_Teste_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E7479B4A3DC7D1AB0AE0D8 /* Pods_Teste_iOSTargets_Teste_iOS_Teste_iOSTests.framework */; };
 		58B8EA0F261A56E400BC8B95 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B8EA11261A56E400BC8B95 /* Localizable.strings */; };
 		58B8EA15261A590400BC8B95 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8EA14261A590300BC8B95 /* String+Extensions.swift */; };
+		58B8EA20261A660B00BC8B95 /* SimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8EA1F261A660B00BC8B95 /* SimulationView.swift */; };
 		A119EA1425DEB849007BF7B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119EA0425DEB849007BF7B0 /* ViewController.swift */; };
 		A119EA1525DEB849007BF7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119EA0625DEB849007BF7B0 /* AppDelegate.swift */; };
 		A119EA1625DEB849007BF7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A119EA0825DEB849007BF7B0 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		16BC926DF3C4A025857CC16F /* Pods_Teste_iOSTargets_Teste_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teste_iOSTargets_Teste_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B8EA10261A56E400BC8B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		58B8EA14261A590300BC8B95 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		58B8EA1F261A660B00BC8B95 /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
 		A119E9A325DEB4FC007BF7B0 /* Teste-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teste-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A119EA0425DEB849007BF7B0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A119EA0625DEB849007BF7B0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				A119EA0B25DEB849007BF7B0 /* Main.storyboard */,
 				A119EA0425DEB849007BF7B0 /* ViewController.swift */,
+				58B8EA1F261A660B00BC8B95 /* SimulationView.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				58B8EA15261A590400BC8B95 /* String+Extensions.swift in Sources */,
 				A119EA1525DEB849007BF7B0 /* AppDelegate.swift in Sources */,
 				A119EA1425DEB849007BF7B0 /* ViewController.swift in Sources */,
+				58B8EA20261A660B00BC8B95 /* SimulationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
