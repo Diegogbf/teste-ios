@@ -13,21 +13,21 @@ public class InputView: UIView {
     // MARK: - Public properties
 
     @IBInspectable
-    var title: String? {
+    public var title: String? {
         didSet {
             titleLabel.text = title
         }
     }
 
     @IBInspectable
-    var placeholder: String? {
+    public var placeholder: String? {
         didSet {
             textfield.placeholder = placeholder
         }
     }
 
     @IBInspectable
-    var text: String? {
+    public var text: String? {
         didSet {
             textfield.text = text
         }
@@ -67,12 +67,11 @@ extension InputView: ViewCodable {
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-
-        dividerView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
     }
 
     public func additionalSetup() {
-
+        titleLabel.minimumScaleFactor = 0.7
+        titleLabel.adjustsFontSizeToFitWidth = true
         setupTapGesture()
         setupStackView()
         setupTextField()
@@ -95,7 +94,6 @@ extension InputView {
         stackView.axis = .vertical
         stackView.spacing = 16.0
         stackView.distribution = .equalSpacing
-        stackView.alignment = .center
     }
 
     private func setupTextField() {
