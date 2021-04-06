@@ -15,7 +15,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: SimulationViewController())
+        window?.rootViewController = UINavigationController(
+            rootViewController: SimulationViewController(
+                viewModel: SimulationViewModel(
+                    repository: SimulationRepository()
+                )
+            )
+        )
         window?.makeKeyAndVisible()
     }
 

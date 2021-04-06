@@ -10,7 +10,7 @@ import UIComponents
 
 class SimulationView: UIView {
 
-// MARK: - Properties
+    // MARK: - Properties
 
     private lazy var scrollView = buildScrollView()
     private lazy var contentStackView = buildContentStackView()
