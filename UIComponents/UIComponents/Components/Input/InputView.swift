@@ -2,13 +2,41 @@ import UIKit
 
 public class InputView: UIView {
 
+    public enum InputType {
+        case currency
+        case date
+        case percentage
+        case `default`
+
+        var maxNumberOfChars: Int {
+            switch self {
+            case .currency:
+                return 16
+            case .percentage:
+                return 4
+            default:
+                return 100
+            }
+        }
+    }
+
     // MARK: - Private properties
 
     private let stackView = UIStackView()
-    private let titleLabel = Label(textStyle: .callout, textColor: .lightGray)
+    private let titleLabel = Label(textStyle: .callout, textColor: .lightGray, numberOfLines: 1)
     private let textfield = UITextField()
     private let dividerView = DividerView()
     private let tapGesture = UITapGestureRecognizer()
+    private let inputType: InputType
+
+    private lazy var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
+        datePicker.locale = .current
+        datePicker.backgroundColor = .white
+        return datePicker
+    }()
 
     // MARK: - Public properties
 
@@ -35,15 +63,24 @@ public class InputView: UIView {
 
     // MARK: - Initializers
 
-    public init() {
+    public init(inputType: InputType = .default) {
+        self.inputType = inputType
         super.init(frame: .zero)
-
         buildViewCode()
+
+        switch inputType {
+        case .currency, .percentage:
+            textfield.keyboardType = .numberPad
+        case .date:
+            textfield.inputView = datePicker
+        default:
+            break
+        }
     }
 
     required init?(coder: NSCoder) {
+        self.inputType = .default
         super.init(coder: coder)
-
         buildViewCode()
     }
 }
@@ -70,8 +107,9 @@ extension InputView: ViewCodable {
     }
 
     public func additionalSetup() {
-        titleLabel.minimumScaleFactor = 0.7
+        titleLabel.minimumScaleFactor = 0.6
         titleLabel.adjustsFontSizeToFitWidth = true
+
         setupTapGesture()
         setupStackView()
         setupTextField()
@@ -85,6 +123,8 @@ extension InputView {
     private func setupTapGesture() {
 
         tapGesture.addTarget(self, action: #selector(textfield.becomeFirstResponder))
+        textfield.addTarget(self, action: #selector(textChanged), for: .editingChanged)
+        textfield.delegate = self
         addGestureRecognizer(tapGesture)
     }
 
@@ -102,5 +142,32 @@ extension InputView {
         textfield.textColor = .darkGray
         textfield.font = .preferredFont(forTextStyle: .title1)
         textfield.autocorrectionType = .no
+    }
+
+    @objc private func datePickerChanged(_ picker: UIDatePicker) {
+        textfield.text = picker.date.formatted("dd/MM/yyyy")
+    }
+
+    @objc private func textChanged(_ textField: UITextField) {
+        let text = textfield.text ?? ""
+
+        switch inputType {
+        case .currency:
+            textfield.text = text.currencyFormatted
+        case .percentage:
+            textfield.text = "\(text)"
+        default:
+            break
+        }
+    }
+}
+
+extension InputView: UITextFieldDelegate {
+    public func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        (textField.text?.count ?? 0) < inputType.maxNumberOfChars || string.isEmpty
     }
 }

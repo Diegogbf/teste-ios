@@ -8,9 +8,12 @@
 
 // MARK: - Simulation screen
 
-"simulation.value.field.placeholder" = "Quanto você gostaria de aplicar? *";
-"simulation.expiration.date.field.placeholder" = "Qual a data de vencimento do investimento? *";
-"simulation.cdi.field.placeholder" = "Qual o percetual do CDI do investimento? *";
+"simulation.value.field.title" = "Quanto você gostaria de aplicar? *";
+"simulation.value.field.placeholder" = "R$";
+"simulation.expiration.date.field.title" = "Qual a data de vencimento do investimento? *";
+"simulation.expiration.date.field.placeholder" = "dia/mês/ano";
+"simulation.cdi.field.title" = "Qual o percetual do CDI do investimento? *";
+"simulation.cdi.field.placeholder" = "100%";
 "simulation.simulate.button.title" = "Simular";
 
 // MARK: - Simulation result

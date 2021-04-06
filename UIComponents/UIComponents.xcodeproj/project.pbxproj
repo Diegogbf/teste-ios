@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58B8EA34261A972200BC8B95 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8EA33261A972200BC8B95 /* Date+Extensions.swift */; };
+		58B8EA43261A9B3700BC8B95 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8EA42261A9B3700BC8B95 /* String+Extensions.swift */; };
+		58B8EA46261A9BDD00BC8B95 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8EA45261A9BDD00BC8B95 /* Double+Extension.swift */; };
 		A119EA7125DEBC31007BF7B0 /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = A119EA6F25DEBC31007BF7B0 /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A119EA9525DEBCBA007BF7B0 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119EA7E25DEBCB9007BF7B0 /* Button.swift */; };
 		A119EA9A25DEBCBA007BF7B0 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119EA8725DEBCBA007BF7B0 /* InputView.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		3B910B9444D4E7F71D3EABDA /* Pods_Teste_iOSTargets_UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teste_iOSTargets_UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B8EA33261A972200BC8B95 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		58B8EA42261A9B3700BC8B95 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		58B8EA45261A9BDD00BC8B95 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		881938C547AB04F8B62E2445 /* Pods-Teste-iOSTargets-UIComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teste-iOSTargets-UIComponents.debug.xcconfig"; path = "Target Support Files/Pods-Teste-iOSTargets-UIComponents/Pods-Teste-iOSTargets-UIComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		9FA609AE39A9450796BDC048 /* Pods-Teste-iOSTargets-UIComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teste-iOSTargets-UIComponents.release.xcconfig"; path = "Target Support Files/Pods-Teste-iOSTargets-UIComponents/Pods-Teste-iOSTargets-UIComponents.release.xcconfig"; sourceTree = "<group>"; };
 		A119EA6C25DEBC31007BF7B0 /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +48,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58B8EA32261A971400BC8B95 /* Utitlity */ = {
+			isa = PBXGroup;
+			children = (
+				58B8EA33261A972200BC8B95 /* Date+Extensions.swift */,
+				58B8EA42261A9B3700BC8B95 /* String+Extensions.swift */,
+				58B8EA45261A9BDD00BC8B95 /* Double+Extension.swift */,
+			);
+			path = Utitlity;
+			sourceTree = "<group>";
+		};
 		6A748035B40263BDA4A2B4ED /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +99,7 @@
 		A119EA7A25DEBC42007BF7B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				58B8EA32261A971400BC8B95 /* Utitlity */,
 				A119EA6F25DEBC31007BF7B0 /* UIComponents.h */,
 				A119EA7025DEBC31007BF7B0 /* Info.plist */,
 			);
@@ -271,10 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A119EA9525DEBCBA007BF7B0 /* Button.swift in Sources */,
+				58B8EA43261A9B3700BC8B95 /* String+Extensions.swift in Sources */,
 				A119EAA225DEBCBA007BF7B0 /* DividerView.swift in Sources */,
 				A119EAA625DEBDF7007BF7B0 /* ViewCodable.swift in Sources */,
 				A119EA9A25DEBCBA007BF7B0 /* InputView.swift in Sources */,
 				A119EA9B25DEBCBA007BF7B0 /* Label.swift in Sources */,
+				58B8EA46261A9BDD00BC8B95 /* Double+Extension.swift in Sources */,
+				58B8EA34261A972200BC8B95 /* Date+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
