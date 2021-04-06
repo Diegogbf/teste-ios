@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class SimulationViewController: UIViewController {
 
     private let contentView = SimulationView()
 

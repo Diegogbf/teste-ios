@@ -17,16 +17,19 @@ class SimulationView: UIView {
     private lazy var scrollContentView = buildScrollContentView()
     private(set) lazy var simulateButton = buildButton()
     private(set) lazy var investedValueInput = buildInput(
-        title: .localize(for: "simulation.value.field.placeholder"),
-        placeholder: .localize(for: "")
+        title: .localize(for: "simulation.value.field.title"),
+        placeholder: .localize(for: .localize(for: "simulation.value.field.placeholder")),
+        type: .currency
     )
     private(set) lazy var expirationDateInput = buildInput(
-        title: .localize(for: "simulation.expiration.date.field.placeholder"),
-        placeholder: .localize(for: "")
+        title: .localize(for: "simulation.expiration.date.field.title"),
+        placeholder: .localize(for: "simulation.expiration.date.field.placeholder"),
+        type: .date
     )
     private(set) lazy var CDIRateInput = buildInput(
-        title: .localize(for: "simulation.cdi.field.placeholder"),
-        placeholder: .localize(for: "")
+        title: .localize(for: "simulation.cdi.field.title"),
+        placeholder: .localize(for: "simulation.cdi.field.placeholder"),
+        type: .percentage
     )
 
     init() {
@@ -96,8 +99,8 @@ extension SimulationView {
         return view
     }
 
-    private func buildInput(title: String, placeholder: String) -> InputView {
-        let inputView = InputView()
+    private func buildInput(title: String, placeholder: String, type: InputView.InputType) -> InputView {
+        let inputView = InputView(inputType: type)
         inputView.title = title
         inputView.placeholder = placeholder
         return inputView
@@ -105,20 +108,7 @@ extension SimulationView {
 
     private func buildButton() -> Button {
         let button = Button()
-        button.isEnabled = false
         button.setTitle(.localize(for: "simulation.simulate.button.title"), for: .normal)
         return button
-    }
-}
-
-extension UIView {
-    func pinToSuperView(constant: CGFloat = 0.0) {
-        guard let superview = superview else { return }
-        NSLayoutConstraint.activate([
-            self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: constant),
-            self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -constant),
-            self.topAnchor.constraint(equalTo: superview.topAnchor, constant: constant),
-            self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -constant)
-        ])
     }
 }
