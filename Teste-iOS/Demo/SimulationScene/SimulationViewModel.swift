@@ -8,6 +8,10 @@
 import Foundation
 import UIComponents
 
+protocol SimulationViewModelCoordinatorProtocol: class {
+    func simulationResult(result: SimulationResultDataModel)
+}
+
 protocol SimulationViewModelProtocol {
     var delegate: SimulationViewModelFeedBack? { get set }
 
@@ -23,12 +27,14 @@ class SimulationViewModel {
     // MARK: - Properties
 
     private let repository: SimulationRepositoryFactory
+    private let coordinatorDelegate: SimulationViewModelCoordinatorProtocol
     weak var delegate: SimulationViewModelFeedBack?
 
     // MARK: - Initializer
 
-    init(repository: SimulationRepositoryFactory) {
+    init(repository: SimulationRepositoryFactory, coordinatorDelegate: SimulationViewModelCoordinatorProtocol) {
         self.repository = repository
+        self.coordinatorDelegate = coordinatorDelegate
     }
 }
 
@@ -45,6 +51,7 @@ extension SimulationViewModel: SimulationViewModelProtocol {
             ), onSuccess: { [weak self] response in
                 guard let self = self else { return }
                 self.delegate?.loader(show: false)
+                self.coordinatorDelegate.simulationResult(result: response)
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 self.delegate?.loader(show: false)
