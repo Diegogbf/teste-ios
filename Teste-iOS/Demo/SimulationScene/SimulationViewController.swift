@@ -1,16 +1,10 @@
 import UIKit
 
-class SimulationViewController: UIViewController {
+class SimulationViewController: CustomViewController<SimulationView> {
 
     // MARK: - Properties
 
-    private let contentView = SimulationView()
     private var viewModel: SimulationViewModelProtocol
-
-    override func loadView() {
-        super.loadView()
-        view = contentView
-    }
 
     required init(viewModel: SimulationViewModelProtocol) {
         self.viewModel = viewModel
