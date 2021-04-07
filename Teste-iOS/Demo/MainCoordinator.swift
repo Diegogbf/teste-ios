@@ -33,6 +33,7 @@ class MainCoordinator {
 
 extension MainCoordinator: SimulationCoordinatorProtocol {
     func showSimulationResult(result: SimulationResultDataModel) {
-
+        let coordinator = SimulationResultCoordinator(navigationController: navigationController)
+        coordinator.start(with: result)
     }
 }

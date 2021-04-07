@@ -26,7 +26,7 @@ struct SimulationResultDataModel: Decodable {
 
 // MARK: - InvestmentParameter
 struct InvestmentDataModel: Decodable {
-    let investedAmount: Int
+    let investedAmount: Double
     let yearlyInterestRate: Double
     let maturityTotalDays, maturityBusinessDays: Int
     let maturityDate: String

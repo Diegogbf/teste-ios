@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     var toBRLFormatted: String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true

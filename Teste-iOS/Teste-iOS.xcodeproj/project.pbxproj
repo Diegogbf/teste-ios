@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		050587FE65B34031D9741429 /* Pods_Teste_iOSTargets_Teste_iOS_Teste_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E7479B4A3DC7D1AB0AE0D8 /* Pods_Teste_iOSTargets_Teste_iOS_Teste_iOSTests.framework */; };
 		5807B630261D54060037840A /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5807B62F261D54060037840A /* CustomViewController.swift */; };
+		5807B633261D544C0037840A /* SimulationResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5807B632261D544C0037840A /* SimulationResultViewController.swift */; };
+		5807B636261D54600037840A /* SimulationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5807B635261D54600037840A /* SimulationResultView.swift */; };
+		5807B639261D5D2B0037840A /* SimulationResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5807B638261D5D2B0037840A /* SimulationResultViewModel.swift */; };
+		5807B63C261D616A0037840A /* SimulationResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5807B63B261D616A0037840A /* SimulationResultCoordinator.swift */; };
 		58374C92261C0094007C39D3 /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58374C82261C0094007C39D3 /* ParameterEncoder.swift */; };
 		58374C93261C0094007C39D3 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58374C83261C0094007C39D3 /* URLParameterEncoder.swift */; };
 		58374C94261C0094007C39D3 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58374C84261C0094007C39D3 /* JSONParameterEncoder.swift */; };
@@ -70,6 +74,10 @@
 		021E9CB75C290E439BB6AED1 /* Pods-Teste-iOSTargets-Teste-iOS-Teste-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teste-iOSTargets-Teste-iOS-Teste-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Teste-iOSTargets-Teste-iOS-Teste-iOSTests/Pods-Teste-iOSTargets-Teste-iOS-Teste-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		16BC926DF3C4A025857CC16F /* Pods_Teste_iOSTargets_Teste_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teste_iOSTargets_Teste_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5807B62F261D54060037840A /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		5807B632261D544C0037840A /* SimulationResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultViewController.swift; sourceTree = "<group>"; };
+		5807B635261D54600037840A /* SimulationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultView.swift; sourceTree = "<group>"; };
+		5807B638261D5D2B0037840A /* SimulationResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultViewModel.swift; sourceTree = "<group>"; };
+		5807B63B261D616A0037840A /* SimulationResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultCoordinator.swift; sourceTree = "<group>"; };
 		58374C82261C0094007C39D3 /* ParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
 		58374C83261C0094007C39D3 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		58374C84261C0094007C39D3 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
@@ -145,6 +153,10 @@
 		5807B62C261D535C0037840A /* SimulationResult */ = {
 			isa = PBXGroup;
 			children = (
+				5807B632261D544C0037840A /* SimulationResultViewController.swift */,
+				5807B635261D54600037840A /* SimulationResultView.swift */,
+				5807B638261D5D2B0037840A /* SimulationResultViewModel.swift */,
+				5807B63B261D616A0037840A /* SimulationResultCoordinator.swift */,
 			);
 			path = SimulationResult;
 			sourceTree = "<group>";
@@ -506,14 +518,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5807B63C261D616A0037840A /* SimulationResultCoordinator.swift in Sources */,
 				58374C93261C0094007C39D3 /* URLParameterEncoder.swift in Sources */,
 				58374CA5261C01EA007C39D3 /* Encodable.swift in Sources */,
+				5807B636261D54600037840A /* SimulationResultView.swift in Sources */,
 				58374CA8261C0641007C39D3 /* SimulationDataModel.swift in Sources */,
 				58B8EA15261A590400BC8B95 /* String+Extensions.swift in Sources */,
 				A119EA1525DEB849007BF7B0 /* AppDelegate.swift in Sources */,
 				5857C362261D4CD700B18845 /* MainCoordinator.swift in Sources */,
 				58B8EA24261A8E4500BC8B95 /* UIView+Extensions.swift in Sources */,
 				58374C9D261C0094007C39D3 /* Router.swift in Sources */,
+				5807B639261D5D2B0037840A /* SimulationResultViewModel.swift in Sources */,
 				58374C98261C0094007C39D3 /* HTTPTask.swift in Sources */,
 				A119EA1425DEB849007BF7B0 /* SimulationViewController.swift in Sources */,
 				58374C97261C0094007C39D3 /* EndPoint.swift in Sources */,
@@ -524,6 +539,7 @@
 				5807B630261D54060037840A /* CustomViewController.swift in Sources */,
 				58374C9A261C0094007C39D3 /* NetworkResponse.swift in Sources */,
 				58374CAB261C0920007C39D3 /* SimulationRepository.swift in Sources */,
+				5807B633261D544C0037840A /* SimulationResultViewController.swift in Sources */,
 				58374C9B261C0094007C39D3 /* HTTPMethod.swift in Sources */,
 				58374C9C261C0094007C39D3 /* EndPointType.swift in Sources */,
 				58374C92261C0094007C39D3 /* ParameterEncoder.swift in Sources */,
