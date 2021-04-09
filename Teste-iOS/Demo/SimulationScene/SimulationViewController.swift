@@ -27,6 +27,7 @@ extension SimulationViewController {
     func setup() {
         viewModel.delegate = self
         setupButtons()
+        observeKeyboardBehavior()
     }
 
     func setupButtons() {
@@ -42,6 +43,15 @@ extension SimulationViewController {
         viewModel.rate = contentView.CDIRateInput.text
         viewModel.expirationDate = contentView.expirationDateInput.text
         viewModel.simulateTapped()
+    }
+
+    override func keyboardAppearanceChange(frame: CGRect, animationDuration: Double) {
+        contentView.scrollView.contentInset = .init(
+            top: .zero,
+            left: .zero,
+            bottom: frame.height,
+            right: .zero
+        )
     }
 }
 

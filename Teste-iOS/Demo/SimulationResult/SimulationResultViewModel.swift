@@ -25,14 +25,14 @@ class SimulationResultViewModel {
 
     // MARK: - Properties
 
-    private let coordinatorDelegate: SimulationResultViewModelCoordinatorProtocol
+    private var coordinatorDelegate: SimulationResultViewModelCoordinatorProtocol?
     private let simulationResult: SimulationResultDataModel
 
     // MARK: - Initializer
 
     init(
         simulationResult: SimulationResultDataModel,
-        coordinatorDelegate: SimulationResultViewModelCoordinatorProtocol
+        coordinatorDelegate: SimulationResultViewModelCoordinatorProtocol?
     ) {
         self.coordinatorDelegate = coordinatorDelegate
         self.simulationResult = simulationResult
@@ -88,7 +88,7 @@ class SimulationResultViewModel {
         )
     }
 
-    var totalDates: InformationView.Data {
+    var totalDays: InformationView.Data {
         .init(
             placeholder: .localize(for: "simulation.result.total.days.field"),
             value: "\(simulationResult.investmentParameter.maturityTotalDays)"
@@ -151,7 +151,7 @@ extension SimulationResultViewModel: SimulationResultViewModelProtocol {
             SimulationResultView.Section(
                 rows: [
                     maturityDate,
-                    totalDates,
+                    totalDays,
                     grossRateMonthly,
                     rate,
                     rateProfit
@@ -161,6 +161,6 @@ extension SimulationResultViewModel: SimulationResultViewModelProtocol {
     }
 
     func simulateAgainTapped() {
-        coordinatorDelegate.simulateAgain()
+        coordinatorDelegate?.simulateAgain()
     }
 }

@@ -12,7 +12,7 @@ class SimulationView: UIView {
 
     // MARK: - Properties
 
-    private lazy var scrollView = buildScrollView()
+    private(set) lazy var scrollView = buildScrollView()
     private lazy var contentStackView = buildContentStackView()
     private lazy var scrollContentView = buildScrollContentView()
     private(set) lazy var simulateButton = buildButton()
