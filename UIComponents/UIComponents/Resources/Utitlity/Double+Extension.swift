@@ -12,8 +12,16 @@ public extension Double {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
-        currencyFormatter.locale = Locale(identifier: "pt_BR")
+        currencyFormatter.locale = .ptBr
         currencyFormatter.maximumFractionDigits = 2
         return currencyFormatter.string(from: NSNumber(value: self)) ?? ""
+    }
+
+    var percentage: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.locale = .ptBr
+        formatter.maximumFractionDigits = 2
+        return formatter.string(from: NSNumber(value: self/100)) ?? ""
     }
 }

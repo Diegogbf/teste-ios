@@ -33,7 +33,7 @@ public class InputView: UIView {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
-        datePicker.locale = .current
+        datePicker.locale = .ptBr
         datePicker.backgroundColor = .white
         return datePicker
     }()
@@ -137,7 +137,6 @@ extension InputView {
     }
 
     private func setupTextField() {
-
         textfield.textAlignment = .center
         textfield.textColor = .darkGray
         textfield.font = .preferredFont(forTextStyle: .title1)
@@ -145,7 +144,7 @@ extension InputView {
     }
 
     @objc private func datePickerChanged(_ picker: UIDatePicker) {
-        textfield.text = picker.date.formatted("dd/MM/yyyy")
+        self.text = picker.date.formatted(.ddMMyyyy)
     }
 
     @objc private func textChanged(_ textField: UITextField) {
@@ -153,9 +152,9 @@ extension InputView {
 
         switch inputType {
         case .currency:
-            textfield.text = text.currencyFormatted
+            self.text = text.currencyFormatted
         case .percentage:
-            textfield.text = "\(text)"
+            self.text = "\(text)"
         default:
             break
         }

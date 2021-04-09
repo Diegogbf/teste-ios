@@ -33,3 +33,9 @@
 "simulation.result.profit.rate.field" = "Rentabilidade no período";
 "simulation.result.simulate.again.buttn.title" = "Simular novamente";
 
+// MARK: - Generic error modal
+
+"error.title" = "Atenção!";
+"button.title" = "Ok";
+"missing.data" = "Preencha todas as informações corretamente!";
+

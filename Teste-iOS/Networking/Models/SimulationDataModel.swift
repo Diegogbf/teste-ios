@@ -20,7 +20,7 @@ struct SimulationResultDataModel: Decodable {
     let investmentParameter: InvestmentDataModel
     let grossAmount, taxesAmount, netAmount, grossAmountProfit: Double
     let netAmountProfit, annualGrossRateProfit, monthlyGrossRateProfit, dailyGrossRateProfit: Double
-    let taxesRate: Int
+    let taxesRate: Double
     let rateProfit, annualNetRateProfit: Double
 }
 
@@ -30,6 +30,6 @@ struct InvestmentDataModel: Decodable {
     let yearlyInterestRate: Double
     let maturityTotalDays, maturityBusinessDays: Int
     let maturityDate: String
-    let rate: Int
+    let rate: Double
     let isTaxFree: Bool
 }

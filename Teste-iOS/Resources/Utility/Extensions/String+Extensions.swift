@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIComponents
 
 extension String {
     static func localize(for key: String) -> String {

@@ -75,18 +75,15 @@ extension SimulationResultViewModel: SimulationResultViewModelProtocol {
             ),
             .init(
                 placeholder: .localize(for: "simulation.result.taxes.field"),
-                value: "\(simulationResult.taxesAmount.toBRLFormatted)(\(simulationResult.taxesRate)%)"
+                value: "\(simulationResult.taxesAmount.toBRLFormatted)(\(simulationResult.taxesRate.percentage))"
             ),
             .init(
                 placeholder: .localize(for: "simulation.result.profit.net.amount.field"),
                 value: simulationResult.netAmount.toBRLFormatted
             ),
-            .init(placeholder: "", value: ""),
-            .init(placeholder: "", value: ""),
-            .init(placeholder: "", value: ""),
             .init(
                 placeholder: .localize(for: "simulation.result.redemption.date.field"),
-                value: simulationResult.investmentParameter.maturityDate
+                value: simulationResult.investmentParameter.maturityDate.date(format: .full)?.formatted(.ddMMyyyy) ?? ""
             ),
             .init(
                 placeholder: .localize(for: "simulation.result.total.days.field"),
@@ -94,15 +91,15 @@ extension SimulationResultViewModel: SimulationResultViewModelProtocol {
             ),
             .init(
                 placeholder: .localize(for: "simulation.result.monthly.profit.rate.field"),
-                value: "\(simulationResult.monthlyGrossRateProfit)%"
+                value: simulationResult.monthlyGrossRateProfit.percentage
             ),
             .init(
                 placeholder: .localize(for: "simulation.result.cdi.rate.field"),
-                value: "\(simulationResult.investmentParameter.rate)%"
+                value: simulationResult.investmentParameter.rate.percentage
             ),
             .init(
                 placeholder: .localize(for: "simulation.result.profit.rate.field"),
-                value: "\(simulationResult.rateProfit)%"
+                value: simulationResult.rateProfit.percentage
             )
         ]
     }

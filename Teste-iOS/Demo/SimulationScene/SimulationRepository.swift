@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SimulationRepositoryFactory {
+protocol SimulationRepositoryProtocol {
     func simulate(
         data: SimulationDataModel,
         onSuccess: @escaping ((SimulationResultDataModel) -> Void),
@@ -15,7 +15,7 @@ protocol SimulationRepositoryFactory {
     )
 }
 
-class SimulationRepository: SimulationRepositoryFactory {
+class SimulationRepository: SimulationRepositoryProtocol {
     func simulate(
         data: SimulationDataModel,
         onSuccess: @escaping ((SimulationResultDataModel) -> Void),

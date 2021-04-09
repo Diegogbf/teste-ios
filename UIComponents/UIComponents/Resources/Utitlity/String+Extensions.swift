@@ -20,4 +20,10 @@ public extension String {
     var numbers: String {
         components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
     }
+
+    func date(format: DateFormat) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format.rawValue
+        return formatter.date(from: self)
+    }
 }

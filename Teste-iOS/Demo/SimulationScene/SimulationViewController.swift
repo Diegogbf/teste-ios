@@ -38,17 +38,20 @@ extension SimulationViewController {
 
 extension SimulationViewController {
     @objc private func simulateButtonTapped() {
-        viewModel.simulateTapped(
-            value: contentView.investedValueInput.text ?? "",
-            date: contentView.expirationDateInput.text ?? "",
-            rate: contentView.CDIRateInput.text ?? ""
-        )
+        viewModel.investmentAmount = contentView.investedValueInput.text
+        viewModel.rate = contentView.CDIRateInput.text
+        viewModel.expirationDate = contentView.expirationDateInput.text
+        viewModel.simulateTapped()
     }
 }
 
 // MARK: - Setups
 
 extension SimulationViewController: SimulationViewModelFeedBack {
+    func displayError(message: String) {
+        showErrorAlert(msg: message)
+    }
+
     func loader(show: Bool) {
         contentView.simulateButton.isLoading = show
     }
