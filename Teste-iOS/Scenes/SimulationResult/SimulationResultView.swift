@@ -66,37 +66,25 @@ extension SimulationResultView: ViewCodable {
         scrollView.pinToSuperView()
         scrollContentView.pinToSuperView()
 
-        let scrollContentHeightConstraint = scrollContentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        scrollContentHeightConstraint.priority = .defaultLow
-        NSLayoutConstraint.activate([
-            scrollContentHeightConstraint,
-            scrollContentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
+        scrollContentView
+            .height(to: scrollView.heightAnchor, priority: .defaultLow)
+            .width(to: scrollView.widthAnchor)
 
-        NSLayoutConstraint.activate([
-            titleStackView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 24),
-            titleStackView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -24),
-            titleStackView.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 24)
-        ])
+        titleStackView
+            .leadingToSuperview(constant: 24)
+            .trailingToSuperview(constant: -24)
+            .topToSuperview(constant: 24)
 
-        NSLayoutConstraint.activate([
-            informationStackView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 24),
-            informationStackView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -24),
-            informationStackView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: 42),
-            informationStackView.bottomAnchor.constraint(
-                lessThanOrEqualTo: simulateAgainButton.topAnchor,
-                constant: -24
-            )
-        ])
+        informationStackView
+            .leadingToSuperview(constant: 24)
+            .trailingToSuperview(constant: -24)
+            .top(to: titleStackView.bottomAnchor, constant: 42)
+            .bottom(lessThan: simulateAgainButton.topAnchor, constant: -24)
 
-        NSLayoutConstraint.activate([
-            simulateAgainButton.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 24),
-            simulateAgainButton.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -24),
-            simulateAgainButton.bottomAnchor.constraint(
-                equalTo: scrollContentView.bottomAnchor,
-                constant: -24
-            )
-        ])
+        simulateAgainButton
+            .leadingToSuperview(constant: 24)
+            .trailingToSuperview(constant: -24)
+            .bottomToSuperview(constant: -24)
     }
 
     func additionalSetup() {
@@ -128,46 +116,5 @@ extension SimulationResultView {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }
-}
-
-class InformationView: UIStackView {
-
-    struct Data {
-        let placeholder: String
-        let value: String
-    }
-
-    // MARK: - Properties
-
-    private let placeholderLabel = Label(textStyle: .footnote, textColor: .lightGray, textAlignment: .left)
-    private let valueLabel = Label(textStyle: .footnote, textColor: .black, numberOfLines: 1, textAlignment: .right)
-
-    // MARK: - Initializer
-
-    init(data: Data) {
-        super.init(frame: .zero)
-        placeholderLabel.text = data.placeholder
-        valueLabel.text = data.value
-        buildViewCode()
-    }
-
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// MARK: - ViewCodable
-
-extension InformationView: ViewCodable {
-    func buildHierarchy() {
-        [placeholderLabel, valueLabel].forEach { addArrangedSubview($0) }
-    }
-
-    func buildConstraints() {}
-
-    func additionalSetup() {
-        axis = .horizontal
-        valueLabel.setContentHuggingPriority(.required, for: .horizontal)
     }
 }

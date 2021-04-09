@@ -17,4 +17,71 @@ extension UIView {
             self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -constant)
         ])
     }
+
+    @discardableResult func leading(to anchor: NSLayoutXAxisAnchor, constant: CGFloat) -> UIView {
+        let constraint = self.leadingAnchor.constraint(equalTo: anchor, constant: constant)
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func trailing(to anchor: NSLayoutXAxisAnchor, constant: CGFloat) -> UIView {
+        let constraint = self.trailingAnchor.constraint(equalTo: anchor, constant: constant)
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func bottom(to anchor: NSLayoutYAxisAnchor, constant: CGFloat) -> UIView {
+        let constraint = self.bottomAnchor.constraint(equalTo: anchor, constant: constant)
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func bottom(lessThan anchor: NSLayoutYAxisAnchor, constant: CGFloat) -> UIView {
+        let constraint = self.bottomAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant)
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func height(
+        to anchor: NSLayoutDimension,
+        constant: CGFloat = 0,
+        priority: UILayoutPriority
+    ) -> UIView {
+        let constraint = self.heightAnchor.constraint(equalTo: anchor, constant: constant)
+        constraint.priority = priority
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func width(to anchor: NSLayoutDimension, constant: CGFloat = 0) -> UIView {
+        let constraint = self.widthAnchor.constraint(equalTo: anchor, constant: constant)
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func top(to anchor: NSLayoutYAxisAnchor, constant: CGFloat) -> UIView {
+        let constraint = self.topAnchor.constraint(equalTo: anchor, constant: constant)
+        constraint.isActive = true
+        return self
+    }
+
+    @discardableResult func leadingToSuperview(constant: CGFloat) -> UIView {
+        guard let superview = superview else { fatalError("View has no parent") }
+        return leading(to: superview.leadingAnchor, constant: constant)
+    }
+
+    @discardableResult func trailingToSuperview(constant: CGFloat) -> UIView {
+        guard let superview = superview else { fatalError("View has no parent") }
+        return trailing(to: superview.trailingAnchor, constant: constant)
+    }
+
+    @discardableResult func bottomToSuperview(constant: CGFloat) -> UIView {
+        guard let superview = superview else { fatalError("View has no parent") }
+        return bottom(to: superview.bottomAnchor, constant: constant)
+    }
+
+    @discardableResult func topToSuperview(constant: CGFloat) -> UIView {
+        guard let superview = superview else { fatalError("View has no parent") }
+        return top(to: superview.topAnchor, constant: constant)
+    }
 }

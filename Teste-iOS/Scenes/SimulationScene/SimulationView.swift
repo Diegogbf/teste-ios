@@ -60,12 +60,9 @@ extension SimulationView: ViewCodable {
         scrollView.pinToSuperView()
         scrollContentView.pinToSuperView()
 
-        let scrollContentHeightConstraint = scrollContentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        scrollContentHeightConstraint.priority = .defaultLow
-        NSLayoutConstraint.activate([
-            scrollContentHeightConstraint,
-            scrollContentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
+        scrollContentView
+            .height(to: scrollView.heightAnchor, priority: .defaultLow)
+            .width(to: scrollView.widthAnchor)
 
         contentStackView.pinToSuperView(constant: 24)
     }
