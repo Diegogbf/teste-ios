@@ -16,7 +16,7 @@ protocol SimulationResultViewModelProtocol {
     var title: String { get }
     var amount: String { get }
     var profitText: String { get }
-    var informationData: [InformationView.Data] { get }
+    var informationData: [SimulationResultView.Section] { get }
 
     func simulateAgainTapped()
 }
@@ -36,6 +36,84 @@ class SimulationResultViewModel {
     ) {
         self.coordinatorDelegate = coordinatorDelegate
         self.simulationResult = simulationResult
+    }
+
+    var investedAmount: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.invested.amount.field"),
+            value: simulationResult.investmentParameter.investedAmount.toBRLFormatted
+        )
+    }
+
+    var grossAmount: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.gross.amount.field"),
+            value: simulationResult.grossAmount.toBRLFormatted
+        )
+    }
+
+    var grossAmountProfit: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.profit.amount.field"),
+            value: simulationResult.grossAmountProfit.toBRLFormatted
+        )
+    }
+
+    var taxes: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.taxes.field"),
+            value: "\(taxesAmount.toBRLFormatted)(\(taxesRate.percentage))"
+        )
+    }
+
+    var taxesRate: Double {
+        simulationResult.taxesRate
+    }
+
+    var taxesAmount: Double {
+        simulationResult.taxesAmount
+    }
+
+    var profitNetAmount: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.profit.net.amount.field"),
+            value: simulationResult.netAmount.toBRLFormatted
+        )
+    }
+
+    var maturityDate: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.redemption.date.field"),
+            value: simulationResult.investmentParameter.maturityDate.date(format: .full)?.formatted(.ddMMyyyy) ?? ""
+        )
+    }
+
+    var totalDates: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.total.days.field"),
+            value: "\(simulationResult.investmentParameter.maturityTotalDays)"
+        )
+    }
+
+    var grossRateMonthly: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.monthly.profit.rate.field"),
+            value: simulationResult.monthlyGrossRateProfit.percentage
+        )
+    }
+
+    var rate: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.cdi.rate.field"),
+            value: simulationResult.investmentParameter.rate.percentage
+        )
+    }
+
+    var rateProfit: InformationView.Data {
+        .init(
+            placeholder: .localize(for: "simulation.result.profit.rate.field"),
+            value: simulationResult.rateProfit.percentage
+        )
     }
 }
 
@@ -59,47 +137,25 @@ extension SimulationResultViewModel: SimulationResultViewModelProtocol {
         )
     }
 
-    var informationData: [InformationView.Data] {
+    var informationData: [SimulationResultView.Section] {
         [
-            .init(
-                placeholder: .localize(for: "simulation.result.invested.amount.field"),
-                value: simulationResult.investmentParameter.investedAmount.toBRLFormatted
+            SimulationResultView.Section(
+                rows: [
+                    investedAmount,
+                    grossAmount,
+                    grossAmountProfit,
+                    taxes,
+                    profitNetAmount
+                ]
             ),
-            .init(
-                placeholder: .localize(for: "simulation.result.gross.amount.field"),
-                value: simulationResult.grossAmount.toBRLFormatted
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.profit.amount.field"),
-                value: simulationResult.rateProfit.toBRLFormatted
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.taxes.field"),
-                value: "\(simulationResult.taxesAmount.toBRLFormatted)(\(simulationResult.taxesRate.percentage))"
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.profit.net.amount.field"),
-                value: simulationResult.netAmount.toBRLFormatted
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.redemption.date.field"),
-                value: simulationResult.investmentParameter.maturityDate.date(format: .full)?.formatted(.ddMMyyyy) ?? ""
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.total.days.field"),
-                value: "\(simulationResult.investmentParameter.maturityTotalDays)"
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.monthly.profit.rate.field"),
-                value: simulationResult.monthlyGrossRateProfit.percentage
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.cdi.rate.field"),
-                value: simulationResult.investmentParameter.rate.percentage
-            ),
-            .init(
-                placeholder: .localize(for: "simulation.result.profit.rate.field"),
-                value: simulationResult.rateProfit.percentage
+            SimulationResultView.Section(
+                rows: [
+                    maturityDate,
+                    totalDates,
+                    grossRateMonthly,
+                    rate,
+                    rateProfit
+                ]
             )
         ]
     }

@@ -43,17 +43,27 @@ class SimulationViewModel {
         self.repository = repository
         self.coordinatorDelegate = coordinatorDelegate
     }
+
+    var isValidInvestmentAmount: Bool {
+        investmentAmount?.numbers.toDouble != .zero
+    }
+
+    var isValidRate: Bool {
+        guard let rate = rate else { return false }
+        return Int(rate) != .zero
+    }
+
+    var isValidExpirationDate: Bool {
+        guard let date = expirationDate?.date(format: .ddMMyyyy) else { return false }
+        return date > Date()
+    }
 }
 
 // MARK: - SimulationViewModelProtocol
 
 extension SimulationViewModel: SimulationViewModelProtocol {
     func simulateTapped() {
-        guard let investmentAmount = investmentAmount?.numbers.toDouble,
-              investmentAmount != .zero,
-              let rateString = rate,
-              let rate = Int(rateString),
-              let expirationDate = expirationDate?.date(format: .ddMMyyyy)?.formatted(.yyyyMMdd) else {
+        guard isValidInvestmentAmount && isValidRate && isValidExpirationDate else {
             delegate?.displayError(message: .localize(for: "missing.data"))
             return
         }
@@ -61,9 +71,9 @@ extension SimulationViewModel: SimulationViewModelProtocol {
         delegate?.loader(show: true)
         repository.simulate(
             data: .init(
-                investedAmount: investmentAmount,
-                rate: rate,
-                maturityDate: expirationDate
+                investedAmount: investmentAmount?.numbers.toDouble,
+                rate: Int(rate ?? "0"),
+                maturityDate: expirationDate?.date(format: .ddMMyyyy)?.formatted(.yyyyMMdd)
             ), onSuccess: { [weak self] response in
                 guard let self = self else { return }
                 self.delegate?.loader(show: false)

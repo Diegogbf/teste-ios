@@ -8,11 +8,11 @@
 import Foundation
 
 struct SimulationDataModel: Encodable {
-    let investedAmount: Double
+    let investedAmount: Double?
     let index: String = "CDI"
-    let rate: Int
+    let rate: Int?
     let isTaxFree: Bool = false
-    let maturityDate: String
+    let maturityDate: String?
 }
 
 // MARK: - SimulationDataModel
