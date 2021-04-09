@@ -15,7 +15,7 @@
 		5807B63C261D616A0037840A /* SimulationResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5807B63B261D616A0037840A /* SimulationResultCoordinator.swift */; };
 		580FF0C0261FF25C006A40DC /* SimulationResultMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 580FF0BF261FF25C006A40DC /* SimulationResultMock.json */; };
 		580FF0C7261FF57C006A40DC /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FF0C6261FF57C006A40DC /* JsonHelper.swift */; };
-		580FF0CC261FF9C9006A40DC /* SimulationResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FF0CB261FF9C9006A40DC /* SimulationResultTests.swift */; };
+		580FF0D4262004A1006A40DC /* SimulationResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FF0D3262004A1006A40DC /* SimulationResultViewModelTests.swift */; };
 		58374C92261C0094007C39D3 /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58374C82261C0094007C39D3 /* ParameterEncoder.swift */; };
 		58374C93261C0094007C39D3 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58374C83261C0094007C39D3 /* URLParameterEncoder.swift */; };
 		58374C94261C0094007C39D3 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58374C84261C0094007C39D3 /* JSONParameterEncoder.swift */; };
@@ -84,7 +84,7 @@
 		5807B63B261D616A0037840A /* SimulationResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultCoordinator.swift; sourceTree = "<group>"; };
 		580FF0BF261FF25C006A40DC /* SimulationResultMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SimulationResultMock.json; sourceTree = "<group>"; };
 		580FF0C6261FF57C006A40DC /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
-		580FF0CB261FF9C9006A40DC /* SimulationResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultTests.swift; sourceTree = "<group>"; };
+		580FF0D3262004A1006A40DC /* SimulationResultViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationResultViewModelTests.swift; sourceTree = "<group>"; };
 		58374C82261C0094007C39D3 /* ParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
 		58374C83261C0094007C39D3 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		58374C84261C0094007C39D3 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 				A119EA4125DEBA69007BF7B0 /* Resources */,
 				5871959D261EB5C400744F38 /* DateTests.swift */,
 				587195A1261EB88400744F38 /* SimulationViewModelTests.swift */,
-				580FF0CB261FF9C9006A40DC /* SimulationResultTests.swift */,
+				580FF0D3262004A1006A40DC /* SimulationResultViewModelTests.swift */,
 			);
 			path = "Teste-iOSTests";
 			sourceTree = "<group>";
@@ -583,7 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				580FF0C7261FF57C006A40DC /* JsonHelper.swift in Sources */,
-				580FF0CC261FF9C9006A40DC /* SimulationResultTests.swift in Sources */,
+				580FF0D4262004A1006A40DC /* SimulationResultViewModelTests.swift in Sources */,
 				5871959E261EB5C400744F38 /* DateTests.swift in Sources */,
 				587195A2261EB88400744F38 /* SimulationViewModelTests.swift in Sources */,
 			);
